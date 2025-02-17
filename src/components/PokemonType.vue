@@ -7,18 +7,18 @@ defineProps(["src"])
   <div v-else class="skeleton"></div>
 </template>
 
-<style scoped>
+<style>
 img {
-  max-width: 17.5rem;
+  max-width: 8.5rem;
 }
 
 .skeleton {
   background-color: #3b3b3b;
 
-  width: 17.5rem;
-  aspect-ratio: 1 / 1;
+  height: 2rem;
+  aspect-ratio: 4.25 / 1;
 
-  border-radius: 1.25rem;
+  border-radius: .75rem;
 
   animation-name: loading;
   animation-duration: 2s;

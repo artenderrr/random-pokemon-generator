@@ -7,7 +7,7 @@
 
 <style scoped>
 p {
-  color: #6b6b6b;
+  color: #cdcdcd;
 
   font-size: 3rem;
 }

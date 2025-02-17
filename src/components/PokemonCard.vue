@@ -2,6 +2,7 @@
 import PokemonID from "./PokemonID.vue";
 import PokemonSprite from "./PokemonSprite.vue";
 import PokemonName from "./PokemonName.vue";
+import PokemonType from "./PokemonType.vue";
 
 const pokemonData = {
   id: 25,
@@ -18,6 +19,7 @@ const pokemonData = {
     <PokemonID>{{ pokemonData.id }}</PokemonID>
     <PokemonSprite :src="pokemonData.sprite"/>
     <PokemonName>{{ pokemonData.name }}</PokemonName>
+    <PokemonType v-for="type in pokemonData.types" :src="type"></PokemonType>
   </div>
 </template>
 
@@ -26,7 +28,7 @@ const pokemonData = {
   background-color: #202020;
 
   width: 25rem;
-  height: 35rem;
+  height: 37.5rem;
 
   display: flex;
   flex-direction: column;
@@ -36,5 +38,7 @@ const pokemonData = {
 
   border: .125rem solid #3b3b3b;
   border-radius: 1.5rem;
+
+  padding: 2rem;
 }
 </style>
