@@ -1,6 +1,6 @@
 <template>
   <p v-if="$slots.default">
-    № <slot />
+    <slot />
   </p>
   <div v-else class="skeleton"></div>
 </template>
@@ -8,15 +8,17 @@
 <style scoped>
 p {
   color: #6b6b6b;
+
+  font-size: 3rem;
 }
 
 .skeleton {
   background-color: #3b3b3b;
 
-  height: 2.5rem;
-  aspect-ratio: 2.5 / 1;
+  height: 3.5rem;
+  aspect-ratio: 5 / 1;
 
-  border-radius: .75rem;
+  border-radius: 1rem;
 
   animation-name: loading;
   animation-duration: 2s;

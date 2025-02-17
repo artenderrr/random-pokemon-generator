@@ -1,10 +1,11 @@
 <script setup>
 import PokemonID from "./PokemonID.vue";
 import PokemonSprite from "./PokemonSprite.vue";
+import PokemonName from "./PokemonName.vue";
 
 const pokemonData = {
   id: 25,
-  name: "Pikcahu",
+  name: "Pikachu",
   sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
   types: [
     "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/13.png"
@@ -16,6 +17,7 @@ const pokemonData = {
   <div class="card">
     <PokemonID>{{ pokemonData.id }}</PokemonID>
     <PokemonSprite :src="pokemonData.sprite"/>
+    <PokemonName>{{ pokemonData.name }}</PokemonName>
   </div>
 </template>
 
