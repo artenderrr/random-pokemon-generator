@@ -10,13 +10,14 @@ defineProps(["src"])
 <style scoped>
 img {
   max-width: 17.5rem;
+  min-height: 17.5rem;
 }
 
 .skeleton {
   background-color: #3b3b3b;
 
   width: 17.5rem;
-  aspect-ratio: 1 / 1;
+  height: 17.5rem;
 
   border-radius: 1.25rem;
 

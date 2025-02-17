@@ -24,7 +24,7 @@ async function fetchTypes(typeRefs) {
   return types;
 }
 
-async function fetchRandomPokemon() {
+async function fetchRandomPokemon() { // refactor later
   const id = getRandomPokemonID();
 
   const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);

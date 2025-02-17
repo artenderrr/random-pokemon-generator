@@ -1,5 +1,5 @@
 <template>
-  <p v-if="$slots.default">
+  <p v-if="!!$slots.default()[0].children">
     <slot />
   </p>
   <div v-else class="skeleton"></div>
