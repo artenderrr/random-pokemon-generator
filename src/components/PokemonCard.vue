@@ -4,22 +4,15 @@ import PokemonSprite from "./PokemonSprite.vue";
 import PokemonName from "./PokemonName.vue";
 import PokemonType from "./PokemonType.vue";
 
-const pokemonData = {
-  id: 25,
-  name: "Pikachu",
-  sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
-  types: [
-    "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/types/generation-ix/scarlet-violet/13.png"
-  ]
-}
+defineProps(["pokemon"])
 </script>
 
 <template>
   <div class="card">
-    <PokemonID>{{ pokemonData.id }}</PokemonID>
-    <PokemonSprite :src="pokemonData.sprite"/>
-    <PokemonName>{{ pokemonData.name }}</PokemonName>
-    <PokemonType v-for="type in pokemonData.types" :src="type"></PokemonType>
+    <PokemonID>{{ pokemon.id }}</PokemonID>
+    <PokemonSprite :src="pokemon.sprite"/>
+    <PokemonName>{{ pokemon.name }}</PokemonName>
+    <PokemonType v-for="type in pokemon.types" :src="type"></PokemonType>
   </div>
 </template>
 
