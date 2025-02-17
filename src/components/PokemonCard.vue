@@ -1,8 +1,9 @@
 <script setup>
 import PokemonID from "./PokemonID.vue";
+import PokemonSprite from "./PokemonSprite.vue";
 
 const pokemonData = {
-  id: 923,
+  id: 25,
   name: "Pikcahu",
   sprite: "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png",
   types: [
@@ -13,7 +14,8 @@ const pokemonData = {
 
 <template>
   <div class="card">
-    <PokemonID></PokemonID>
+    <PokemonID>{{ pokemonData.id }}</PokemonID>
+    <PokemonSprite :src="pokemonData.sprite"/>
   </div>
 </template>
 
@@ -28,6 +30,7 @@ const pokemonData = {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 1rem;
 
   border: .125rem solid #3b3b3b;
   border-radius: 1.5rem;
