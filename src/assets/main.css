@@ -9,9 +9,16 @@ html, body, #app {
 }
 
 body {
-  background-color: #3b3b3b;
+  background-color: #1b1b1b;
   color: #cdcdcd;
 
   font-family: system-ui;
   font-size: 2rem;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
