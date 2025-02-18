@@ -31,12 +31,8 @@ async function fetchTypes(typeRefs) {
   return types;
 }
 
-async function fetchRandomPokemon() { // refactor later
-  resetPokemon();
-
-  const id = getRandomPokemonID();
-
-  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+async function fetchPokemonData(pokemonId) {
+  const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonId}`);
   const data = await response.json();
 
   const { 
@@ -46,7 +42,21 @@ async function fetchRandomPokemon() { // refactor later
    } = data;
   const types = await fetchTypes(typeRefs);
 
-  pokemon.value = { id, name: name[0].toUpperCase() + name.slice(1), sprite: front_default, types };
+  return {
+    id: pokemonId,
+    name: name[0].toUpperCase() + name.slice(1),
+    sprite: front_default,
+    types
+  };
+}
+
+async function getRandomPokemon() {
+  resetPokemon();
+
+  const id = getRandomPokemonID();
+  const pokemonData = await fetchPokemonData(id);
+
+  pokemon.value = pokemonData;
 }
 
 resetPokemon();
@@ -55,7 +65,7 @@ resetPokemon();
 <template>
   <HelpButton @click="showModal = true;"/>
   <PokemonCard :pokemon="pokemon" :visible="pokemonCardVisible" />
-  <PokeballButton @click="pokemonCardVisible = true; fetchRandomPokemon();" />
+  <PokeballButton @click="pokemonCardVisible = true; getRandomPokemon();" />
 
   <HelpModal v-if="showModal" @hide-modal="showModal = false;"/>
 </template>
