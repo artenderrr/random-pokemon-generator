@@ -1,9 +1,25 @@
 <script setup>
-defineProps(["src"])
+import { ref, watch } from "vue";
+
+const props = defineProps(["src"]);
+
+const loadedSrc = ref(null);
+
+watch(() => props.src, (newSrc) => {
+  if (!newSrc) {
+    loadedSrc.value = null;
+  } else {
+    const img = new Image();
+    img.src = props.src;
+    img.onload = () => {
+      loadedSrc.value = props.src;
+    };
+  }
+});
 </script>
 
 <template>
-  <img v-if="src" :src="src">
+  <img v-if="loadedSrc" :src="loadedSrc">
   <div v-else class="skeleton"></div>
 </template>
 
