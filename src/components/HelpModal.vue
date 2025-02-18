@@ -1,12 +1,31 @@
+<script setup>
+import { ref, onMounted, onUnmounted } from "vue";
+
+const emit = defineEmits(["hide-modal"]);
+
+const isHidden = ref(true);
+
+function hideModal() {
+  isHidden.value = true;
+  setTimeout(() => {
+    emit("hide-modal");
+  }, 100);
+}
+
+onMounted(() => setTimeout(() => {
+  isHidden.value = false;
+}, 1));
+</script>
+
 <template>
-  <div class="modal-background"></div>
-  <div class="modal-window">
+  <div class="modal-background" :class="{ hidden: isHidden }"></div>
+  <div class="modal-window" :class="{ hidden: isHidden }">
     <p>
       Press on
       <svg class="pokeball-icon" xmlns="http://www.w3.org/2000/svg" width="200" height="200" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path d="M3 12a9 9 0 1 0 18 0a9 9 0 1 0-18 0"/><path d="M9 12a3 3 0 1 0 6 0a3 3 0 1 0-6 0m-6 0h6m6 0h6"/></g></svg>
       to generate random Pokemon!
     </p>
-    <button>Got it!</button>
+    <button @click="hideModal">Got it!</button>
   </div>
 </template>
 
@@ -19,6 +38,12 @@
 
   width: 100%;
   height: 100%;
+
+  transition: opacity .25s;
+}
+
+.modal-background.hidden {
+  opacity: 0;
 }
 
 .modal-window {
@@ -39,6 +64,13 @@
   border-radius: 1.5rem;
 
   padding: 2rem;
+
+  will-change: transform;
+  transition: transform .25s;
+}
+
+.modal-window.hidden {
+  transform: scale(0);
 }
 
 p {

@@ -7,6 +7,7 @@ import HelpModal from "./components/HelpModal.vue";
 
 const pokemon = ref(null);
 const pokemonCardVisible = ref(false);
+const showModal = ref(false);
 
 function resetPokemon () {
   pokemon.value = {
@@ -52,9 +53,9 @@ resetPokemon();
 </script>
 
 <template>
-  <HelpButton />
+  <HelpButton @click="showModal = true;"/>
   <PokemonCard :pokemon="pokemon" :visible="pokemonCardVisible" />
   <PokeballButton @click="pokemonCardVisible = true; fetchRandomPokemon();" />
 
-  <HelpModal />
+  <HelpModal v-if="showModal" @hide-modal="showModal = false;"/>
 </template>
