@@ -24,3 +24,21 @@ body {
   
   gap: 1rem;
 }
+
+@media (max-width: 480px) {
+  html {
+    font-size: .8rem;
+  }
+}
+
+@media (max-width: 380px) {
+  html {
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 330px) {
+  html {
+    font-size: .65rem;
+  }
+}
