@@ -5,6 +5,7 @@ import HelpButton from "./components/HelpButton.vue";
 import PokemonCard from "./components/PokemonCard.vue";
 
 const pokemon = ref(null);
+const pokemonCardVisible = ref(false);
 
 function resetPokemon () {
   pokemon.value = {
@@ -51,6 +52,6 @@ resetPokemon();
 
 <template>
   <HelpButton />
-  <PokemonCard :pokemon="pokemon" />
-  <PokeballButton @click="fetchRandomPokemon" />
+  <PokemonCard :pokemon="pokemon" :visible="pokemonCardVisible" />
+  <PokeballButton @click="pokemonCardVisible = true; fetchRandomPokemon();" />
 </template>

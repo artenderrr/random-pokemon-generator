@@ -4,11 +4,11 @@ import PokemonSprite from "./PokemonSprite.vue";
 import PokemonName from "./PokemonName.vue";
 import PokemonType from "./PokemonType.vue";
 
-defineProps(["pokemon"])
+defineProps(["pokemon", "visible"])
 </script>
 
 <template>
-  <div class="card">
+  <div v-if="visible" class="card">
     <PokemonID>{{ pokemon.id }}</PokemonID>
     <PokemonSprite :src="pokemon.sprite"/>
     <PokemonName>{{ pokemon.name }}</PokemonName>
